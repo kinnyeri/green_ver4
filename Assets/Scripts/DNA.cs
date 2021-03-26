@@ -10,13 +10,13 @@ public class DNA
 
     private System.Random random;
     private Func<float> getRandomGene;
-    private Func<float, float> fitnessFunction;
+    private Func<float, double> fitnessFunction;
     private Terrain terrain;
     private Func<string, int> debugW;
     static float sizeWeight = 1.5f;
     int size;
 
-    public DNA(Terrain terrain,int size, System.Random random, Func<float, float> fitnessFunction, Func<float> getRandomGene, Func<string, int> debugW, bool shouldInitGenes = true)
+    public DNA(Terrain terrain,int size, System.Random random, Func<float, double> fitnessFunction, Func<float> getRandomGene, Func<string, int> debugW, bool shouldInitGenes = true)
     {
         Genes = new float[size, size];
         this.random = random;

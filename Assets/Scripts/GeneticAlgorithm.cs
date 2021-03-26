@@ -17,14 +17,14 @@ public class GeneticAlgorithm
     private System.Random random;
     private double fitnessSum;
     private Func<float> getRandomGene;
-    private Func<float, float> fitnessFunction;
+    private Func<float, double> fitnessFunction;
     private Terrain[] terrainGroup;
     private int populationSize;
     private SimulationManager simulationManager;
     private Func<string, int> debugW; // 디버깅 용 필요 없음
 
     public GeneticAlgorithm(Terrain[] terrainGroup, SimulationManager simulationManager, int populationSize, System.Random random, int elitism,
-        Func<float, float> fitnessFunction, Func<float> getRandomGene, Func<string, int> debugW, float mutationRate = 0.01f)
+        Func<float, double> fitnessFunction, Func<float> getRandomGene, Func<string, int> debugW, float mutationRate = 0.01f)
     {
         Generation = 1;
         Elitism = elitism;

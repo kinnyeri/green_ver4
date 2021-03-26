@@ -30,7 +30,7 @@ public class GeneticManager : MonoBehaviour
     {
         //ga의 상태를 파악 > 제너래이션 한 세대가 끝났는지 안끝났는지 확인 후 끝났으면 
         debugWGA("BestFitness "+ga.BestFitness);
-        if(ga.BestFitness < target)
+        if(ga.BestFitness < target || ga.BestFitness.Equals(double.NaN))
         {
             if (ga.generationEnded && count<5)
             {
@@ -52,7 +52,7 @@ public class GeneticManager : MonoBehaviour
     {
         return (float)Random.Range(-2.5f,2.5f);
     }
-    public float fitnessFunction(float valueOfZ)
+    public double fitnessFunction(float valueOfZ)
     {
         int n = 10;
 
@@ -69,7 +69,8 @@ public class GeneticManager : MonoBehaviour
             nom *= x2;
             denom *= c;
         }
-        float ans = (float)(0.5 + sum * Mathf.Exp(-x2 * 0.5f) / Mathf.Sqrt(2 * Mathf.PI));
+        Debug.Log("valueOfZ : " + valueOfZ + " x2 : " + x2 + " sum : " + sum);
+        double ans = (0.5 + sum * Mathf.Exp(-x2 * 0.5f) / Mathf.Sqrt(2 * Mathf.PI));
         debugWGA("확률 " + ans);
         
         return ans;
