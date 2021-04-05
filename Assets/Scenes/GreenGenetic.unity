@@ -281,9 +281,6 @@ MonoBehaviour:
   simulations:
   - {fileID: 2012596536}
   - {fileID: 2129040086}
-  - {fileID: 220483475}
-  - {fileID: 1924162757}
-  - {fileID: 1087204984}
 --- !u!4 &146660031
 Transform:
   m_ObjectHideFlags: 0
