@@ -42,13 +42,6 @@ public class Simulation : Progress
     // Start is called before the first frame update
     void Start()
     {
-        //if (stateIsNone) state = 0;  //none 상태
-        ////random = new System.Random();
-        //mb.setTerrain(gameObject.GetComponent<Terrain>());
-
-        //angleList = new List<float>();
-        //distanceList = new List<float>();
-        //velocList = new List<float>();
     }
 
     // Update is called once per frame
@@ -178,7 +171,7 @@ public class Simulation : Progress
             {
                 Debug.Log("못 들어감");
                 numberOfTryToFoundAnswer++;
-                if (numberOfTryToFoundAnswer == 10)
+                if (numberOfTryToFoundAnswer == 8)
                 { //10번 못들어감
                     float startPosX = Random.Range(100, 200); float startPosZ = Random.Range(100, 200);
                     float startPosY = this.GetComponent<Terrain>().terrainData.GetHeight((int)startPosX - (int)biasOfX, (int)startPosZ);

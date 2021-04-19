@@ -5,7 +5,7 @@ using UnityEngine;
 public class DNA
 {
     public float[,] Genes; //{ get; private set; }
-    public double Fitness { get; private set; }
+    public double Fitness; //{ get; private set; }
     public bool isNewGene = false;
 
     private System.Random random;

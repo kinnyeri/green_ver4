@@ -30,8 +30,9 @@ public class GeneticManager : MonoBehaviour
     {
         //ga의 상태를 파악 > 제너래이션 한 세대가 끝났는지 안끝났는지 확인 후 끝났으면 
         debugWGA("BestFitness "+ga.BestFitness);
-        if(ga.BestFitness < target || ga.BestFitness.Equals(double.NaN))
+        if(ga.BestFitness < target) // || ga.BestFitness.Equals(double.NaN)
         {
+            debugWGA("update bestFiteness " + ga.BestFitness);
             if (ga.generationEnded && count<5)
             {
                 ga.generationEnded = false;

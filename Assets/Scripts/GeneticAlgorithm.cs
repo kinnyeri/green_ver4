@@ -120,21 +120,45 @@ public class GeneticAlgorithm
     private void CalculateFitness()
     {
         fitnessSum = 0;
+        int index = 0;
         DNA best = Population[0];
 
         for (int i = 0; i < Population.Count; i++)
         {
             fitnessSum += Population[i].CalculateFitness(i);
-
-            if (Population[i].Fitness > best.Fitness)
+            debugW(i+" fitnessSum " + fitnessSum);
+            debugW(i+" fitness " + Population[i].Fitness);
+            if (best.Fitness.Equals(double.NaN))
+            {
+                if (i != Population.Count + 1)
+                {
+                    best = Population[i + 1];
+                    i++;
+                }
+                else
+                {
+                    best.Fitness = 0;
+                }
+                debugW(i+" best NaN change " + best.Fitness);
+            }
+            else if (Population[i].Fitness.Equals(double.NaN))
+            {
+                i++;
+                debugW(i + "is NaN");
+            }
+            else if (Population[i].Fitness > best.Fitness) //&& !Population[i].Fitness.Equals(double.NaN)
             {
                 best = Population[i];
+                index = i; 
+                debugW("best 찾기 "+best.Fitness);
             }
         }
 
         BestFitness = best.Fitness;
         //best.Genes = BestGenes.Clone();
-        best.Genes= BestGenes;
+        BestGenes = best.Genes;
+        //= BestGenes;
+        debugW("best gene num " + index);
     }
 
     private DNA ChooseParent()

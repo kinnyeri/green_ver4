@@ -43,7 +43,8 @@ public class MoveBall : MonoBehaviour
         terrainData = terrain.terrainData;
         biasOfX = terrain.transform.position.x;
         biasOfZ = terrain.transform.position.z;
-        Debug.Log("set Terrain "+terrain.name+"X of pos "+terrain.transform.position.x);
+        Debug.Log("set Terrain "+terrain.name+"X of pos "+ biasOfX);
+        Debug.Log("set Terrain "+terrain.name+"Z of pos "+ biasOfZ);
     }
     public void setBallPos(Vector3 biasPos)
     {
@@ -92,7 +93,7 @@ public class MoveBall : MonoBehaviour
             perp = Vector3.Cross(side2, side1);
             perp = perp.normalized;
 
-            Debug.Log("법선 : "+perp.ToString("F3"));
+            //Debug.Log("법선 : "+perp.ToString("F3"));
 
             // 중력
             float height = getHeight(transform.position.x - biasOfX, transform.position.z - biasOfZ);
