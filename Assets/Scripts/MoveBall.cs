@@ -121,68 +121,7 @@ public class MoveBall : MonoBehaviour
         //if (cnt == 11) finish = true;
         //}
     }
-    /*
-    void FixedUpdate()
-    {
-        if (simulation.state == Progress.StateLevel.Start)
-        {
-            //norm
-            targetPosition = targetPositionObject.transform.position;
-
-        }
-        if (simulation.state == Progress.StateLevel.Roll)
-        {
-            if (Mathf.Abs(targetPosition.x - transform.position.x) < 1.3f && Mathf.Abs(targetPosition.z - transform.position.z) < 1.3f)
-            {
-                Debug.Log("정답!");
-                succeed = true;
-                velocity = new Vector3(0f, 0f, 0f);
-                finish = true;//들어갔다
-
-                return;
-            }
-
-            if ((Mathf.Round(velocity.z * 1000) * 0.001f) <= 1)
-            {
-                finish = true; // 끝났다
-                return;
-            }
-            if (transform.position.x < 75 || transform.position.x > 375 || transform.position.z < 75 || transform.position.z > 375)
-            {
-                finish = true;
-                return;
-            }
-            //norm
-            targetPosition = targetPositionObject.transform.position;
-
-            perp = Vector3.Cross(side2, side1);
-            perp = perp.normalized;
-
-            // 중력
-            float height = getHeight(transform.position.x, transform.position.z);
-            Vector3 gravityA;
-            if (transform.position.y <= height + 1f)
-            {
-                gravityA = new Vector3(gravity.y * perp.x, gravity.y * (perp.y - 1.5f), gravity.y * perp.z);
-            }
-            else
-            {
-                gravityA = new Vector3(0, -gravity.y, 0);
-            }
-
-            //마찰력
-            greenFriction = Mathf.Lerp(0.8f, 0.3f, velocity.magnitude / T); // 운동, 정지 마찰력 //  0.3f * (Vector3.Magnitude(velocity) / T) + 0.4f * ((T - Vector3.Magnitude(velocity) / T));
-            FrictionA = -perp.y * gravity.y * velocity.normalized * greenFriction;
-
-            velocity += (gravityA + FrictionA) * Time.deltaTime;
-            //transform.position += velocity * Time.deltaTime;
-            transform.Translate(velocity * Time.deltaTime); // local 좌표로 이동
-            height = getHeight(transform.position.x, transform.position.z);
-            if (height + 1f > transform.position.y)
-                transform.Translate(0, height + 1f - transform.position.y, 0);
-        }
-    }
-    */
+   
     float getHeight(float x, float z)
     {
         float ld, rd, lu, ru;
@@ -195,16 +134,6 @@ public class MoveBall : MonoBehaviour
         r = Mathf.Lerp(rd, ru, z - Mathf.Floor(z));
         return Mathf.Lerp(l, r, x - Mathf.Floor(x));
     }
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log("onCollis entered");
-    //    if (collision.gameObject.name == terrain.name)
-    //    {
-    //        GetComponent<Rigidbody>().isKinematic = true;
-    //        isColliedGGreen = true;
-    //        Debug.Log(terrain.name + "/충돌 "+isColliedGGreen);
-    //    }
-    //}
     public void turnOffKinematic()
     {
         GetComponent<Rigidbody>().isKinematic = false;

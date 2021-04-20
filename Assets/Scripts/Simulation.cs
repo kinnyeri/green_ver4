@@ -57,8 +57,6 @@ public class Simulation : Progress
         biasOfX = terrain.transform.position.x;
         biasOfZ = terrain.transform.position.z;
         Debug.Log("simulationStart " + this.name +"/ state: "+state);
-        //test.transform.position = new Vector3(495, 10, 20);
-        //Debug.Log("test transform position " + test.transform.position);
 
         //변수 선언
         //정답 찾기
@@ -104,21 +102,6 @@ public class Simulation : Progress
         }
         ball.transform.position = startPos.transform.position; //원래 뉴 스타트 안에 있었음
         mb.setBallPos(startPos.transform.position);
-        //if (isNewStart)
-        //{
-        //    //새 스타트 위치
-
-
-        //    //각도 랜덤 생성
-        //    isNewStart = false;
-        //}
-
-        //if (mb.isColliedGGreen)
-        //{
-        //    isNewStart = true;
-        //    nextState();
-        //}
-        //stateIsNone = true;
         nextState();
     }
     public override void readyState()
@@ -139,11 +122,7 @@ public class Simulation : Progress
     public override void rollState()
     {
         Debug.Log("roll");
-        //if (isFirstRoll)
-        //{
-            
-        //    isFirstRoll = false;
-        //}
+
         mb.startMovingBall();
         if (mb.finish)
         {
@@ -222,15 +201,7 @@ public class Simulation : Progress
                 //rightAngleList.Clear();
                 distanceList.Clear();
                 angleList.Clear();
-
-                //startPos.transform.position = new Vector3(random.Next(100, 200), 8f, random.Next(100, 200));
-                //foundAns = false;
-                //countRound++;
-
-                //numberOfSimulation = 0;
-                //mb.succeed = false;
-                //this.enabled = false;
-                //tt.finish = false;
+                
                 //정답 부터 다시 찾기
                 stateIsNone = true; //더이상 시뮬레이션할 필요없다
             }

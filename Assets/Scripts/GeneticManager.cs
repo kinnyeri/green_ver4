@@ -17,7 +17,7 @@ public class GeneticManager : MonoBehaviour
     int count = 0;
     void Start()
     {
-        random = new System.Random();
+        random = new System.Random(1);
         //ga 를 만들어야함
         populationSize = terrainGroup.Length;
         Debug.Log("Make GA "+populationSize);

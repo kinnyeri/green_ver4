@@ -130,15 +130,15 @@ public class GeneticAlgorithm
             debugW(i+" fitness " + Population[i].Fitness);
             if (best.Fitness.Equals(double.NaN))
             {
-                if (i != Population.Count + 1)
-                {
-                    best = Population[i + 1];
-                    i++;
-                }
-                else
-                {
-                    best.Fitness = 0;
-                }
+                //if (i != Population.Count + 1)
+                //{
+                //    best = Population[i + 1];
+                //    i++;
+                //}
+                //else
+                //{
+                //    best.Fitness = 0;
+                //}
                 debugW(i+" best NaN change " + best.Fitness);
             }
             else if (Population[i].Fitness.Equals(double.NaN))
